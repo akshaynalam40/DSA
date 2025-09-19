@@ -17,16 +17,23 @@ class Spreadsheet {
         int i = formula.indexOf('+');
         String cell1 = formula.substring(1, i);
         String cell2 = formula.substring(i + 1);
+          int value1=0;
+         if(Character.isLetter(cell1.charAt(0))){
+             value1= map.getOrDefault(cell1, 0);
+         }
+         else{
+            value1=Integer.parseInt(cell1);
+         }
 
-        int val1 = Character.isLetter(cell1.charAt(0))
-            ? map.getOrDefault(cell1, 0)
-            : Integer.parseInt(cell1);
+        int value2 =0;
+         if(Character.isLetter(cell2.charAt(0))){
+            value2=map.getOrDefault(cell2, 0);
+         }
+         else{
+            value2=Integer.parseInt(cell2);
+         }
 
-        int val2 = Character.isLetter(cell2.charAt(0))
-            ? map.getOrDefault(cell2, 0)
-            : Integer.parseInt(cell2);
-
-        return val1 + val2;
+        return value1 + value2;
     }
 }
 
