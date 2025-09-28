@@ -2,24 +2,21 @@ class Solution {
     public long splitArray(int[] nums) {
         int n = nums.length;
         long mini=0;
-        if (n < 2) {
+        if(n<2){
             return 0;
         }
-
-        if (n == 2) {
+        if(n==2){
             return Math.abs(nums[0] - nums[1]);
         }
-
-        long prefixSum = 0;
-        long suffixSum = 0;
-        int i = 0;
-        int j = n - 1;
-        while (i < n - 1 && nums[i] < nums[i + 1]) {
-            prefixSum += nums[i];
+        long prefixSum=0;
+        long suffixSum=0;
+        int i=0,j=n-1;
+        while(i<n-1 && nums[i]<nums[i+1]){
+            prefixSum+=nums[i];
             i++;
         }
-        while (j > 0&& nums[j] < nums[j - 1]) {
-            suffixSum += nums[j];
+        while(j>0 && nums[j]<nums[j-1]){
+            suffixSum+=nums[j];
             j--;
         }
         if(i==j){
@@ -33,7 +30,7 @@ class Solution {
             return mini;
         }
         else{
-        return -1;
+            return -1;
           }
     }
 }
