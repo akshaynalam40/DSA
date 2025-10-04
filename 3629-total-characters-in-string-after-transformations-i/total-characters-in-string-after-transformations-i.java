@@ -3,9 +3,8 @@ class Solution {
         int n = s.length();
         long arr[] = new long[26];
         int mod = 1000000007;
-
-        for (int i = 0; i < n; i++) {
-            arr[s.charAt(i) - 'a']++;
+        for (int i=0; i<n;i++) {
+            arr[s.charAt(i)-'a']++;
         }
         for (int j= 0;j< t;j++) {
             long  temp[]=new long[26];
@@ -21,8 +20,8 @@ class Solution {
              arr=temp;
         }
         long len = 0;
-        for (int i = 0; i < 26; i++) {
-            len = (len + arr[i]) % mod;
+        for (int i=0;i<26;i++) {
+            len=(len+arr[i])%mod;
         }
 
         return (int) len;
