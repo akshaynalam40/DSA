@@ -1,20 +1,30 @@
 class Solution {
     public int smallestNumber(int n) {
-        int ele = n;
-        while (true) {
-            int x = ele;
-            boolean allOnes = true;
-            while (x != 0) {
-                if (x % 2!= 1) {
-                    allOnes = false;
+        ArrayList<Integer>al = new ArrayList<>();
+        int ele=n;
+        while(true){
+            int x=ele;
+            while(x!=0){
+                al.add(x%2);
+                x=x/2;
+            }
+            int count=0;
+            for(int i=0;i<al.size();i++){
+                if(al.get(i)==1){
+                    continue;
+                }
+                else{
+                    count++;
+                    ele++;
                     break;
                 }
-                x = x /2;
             }
-            if (allOnes) {
-                return ele;
+            al.clear();
+            if(count==0){
+                break;
             }
-            ele++;
+            
         }
+        return ele;
     }
 }
