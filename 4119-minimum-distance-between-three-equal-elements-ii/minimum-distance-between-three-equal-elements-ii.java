@@ -1,8 +1,6 @@
 class Solution {
     public int minimumDistance(int[] nums) {
-
         Map<Integer,ArrayList<Integer>> map = new HashMap<>();
-
         for(int i = 0;i<nums.length;i++){
             if(!map.containsKey(nums[i])){
                 ArrayList<Integer> arr = new ArrayList<>();
@@ -30,7 +28,7 @@ class Solution {
             }
         }
 
-        if(minDistance == Integer.MAX_VALUE)return -1;
+        if(minDistance==Integer.MAX_VALUE)return -1;
         return minDistance;
     }
 }
