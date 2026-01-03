@@ -15,15 +15,13 @@ class Solution {
         for(int i = 1; i < n; i++) {
             maxPossible[i] = Math.min(
                 maxPossible[i],
-                maxPossible[i - 1] + diff[i - 1]
-            );
+                maxPossible[i - 1] + diff[i - 1]);
         }
 
         for(int i = n - 2; i >= 0; i--) {
             maxPossible[i] = Math.min(
                 maxPossible[i],
-                maxPossible[i + 1] + diff[i]
-            );
+                maxPossible[i + 1] + diff[i]);
         }
 
         int ans = 0;
