@@ -5,6 +5,9 @@ class Solution {
         Arrays.sort(nums);
         int res=0;
         for(int i=0;i<n;i++){
+            if(nums[i]<=4){
+                continue;
+            }
             if(hm.containsKey(nums[i])){
                 res+=hm.get(nums[i]);
             }
