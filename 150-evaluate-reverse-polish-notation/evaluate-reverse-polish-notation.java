@@ -4,7 +4,7 @@ class Solution {
     }
     public int evalRPN(String[] tokens) {
         int n=tokens.length;
-        Stack<Integer> st = new Stack<>();
+        Stack<Integer>st = new Stack<>();
         for(int i = 0; i<n;i++){
             if(isOperator(tokens[i])){
                 int a = st.pop();
@@ -12,18 +12,18 @@ class Solution {
                 int val = 0;
                 if(tokens[i].equals("+"))
                 {
-                    val =b + a;
+                    val=b+a;
                 }
                 else if(tokens[i].equals("-"))
                 {
-                    val =b - a;
+                    val=b-a;
                 }
                 else if(tokens[i].equals("*"))
                 {
-                    val =b * a;
+                    val =b*a;
                 }
                 else{
-                    val =b / a;
+                    val=b/a;
                 }
                 st.push(val);
             }
