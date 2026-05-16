@@ -14,36 +14,21 @@
  * }
  */
 class Solution {
-    public int findheight(TreeNode root){
+    public boolean isBalanced(TreeNode root) {
+        return dfsheight(root)!=-1;
+    }
+    public int dfsheight(TreeNode root){
         if(root==null){
             return 0;
         }
-        int left=findheight(root.left);
-        int right=findheight(root.right);
-        return 1+Math.max(left,right);
-    }
-    public boolean check(TreeNode root){
-        if(root==null){
-            return true;
+        int lh=dfsheight(root.left);
+        int rh=dfsheight(root.right);
+        if(lh==-1|| rh==-1){
+            return -1;
         }
-        int l=findheight(root.left);
-        int  r=findheight(root.right);
-        if(Math.abs(l-r)>1){
-            return false;
+        if(Math.abs(lh-rh)>1){
+            return -1;
         }
-
-        boolean left=check(root.left);
-        boolean  right=check(root.right);
-
-        if(!left || !right){
-            return false;
-        }
-
-        return true;
-    }
-    public boolean isBalanced(TreeNode root) {
-        boolean ans=check(root);
-        return ans;
-        
+        return Math.max(lh,rh)+1;
     }
 }
