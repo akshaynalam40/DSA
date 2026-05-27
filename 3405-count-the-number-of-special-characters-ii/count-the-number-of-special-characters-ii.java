@@ -1,41 +1,27 @@
-import java.util.*;
-
 class Solution {
     public int numberOfSpecialChars(String word) {
-
-        HashMap<Character, Integer> lastSmall = new HashMap<>();
-        HashMap<Character, Integer> firstCapital = new HashMap<>();
-
-        int n = word.length();
-
-        for (int i = 0; i < n; i++) {
-
-            char ch = word.charAt(i);
-
-            if (Character.isLowerCase(ch)) {
-
-                lastSmall.put(ch, i);
-
-            } else {
-
-                firstCapital.putIfAbsent(ch, i);
+        int n=word.length();
+        HashMap<Character,Integer>small=new HashMap<>();
+        HashMap<Character,Integer>capital=new HashMap<>();
+        for(int i=0;i<n;i++){
+            char ch=word.charAt(i);
+            if(ch>='a' && ch<='z'){
+                small.put(ch,i);
+    
+            }
+            else{
+                capital.putIfAbsent(ch,i);
             }
         }
-
         int count = 0;
-
-        for (char ch : lastSmall.keySet()) {
-
-            char big = (char)(ch - 'a' + 'A');
-
-            if (firstCapital.containsKey(big)) {
-
-                if (lastSmall.get(ch) < firstCapital.get(big)) {
+        for(char ch:small.keySet()){
+            char big=(char)(ch-'a'+'A');
+            if(capital.containsKey(big)) {
+                if (small.get(ch)<capital.get(big)) {
                     count++;
                 }
             }
         }
-
         return count;
-    }
+            }
 }
