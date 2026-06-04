@@ -15,12 +15,11 @@ class Solution {
                 int left=al.get(j - 1);
                 int mid=al.get(j);
                 int right=al.get(j + 1);
-                if((mid>left&&mid>right)||(mid<left&&mid<right)) {
+                if((mid>left&&mid>right)||(mid<left&&mid<right)){
                     count++;
                 }
             }
         }
-
         return count;
     }
 }
