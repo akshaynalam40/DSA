@@ -3,14 +3,10 @@ class Solution {
     public List<String> generateValidStrings(int n,int k) {
         StringBuilder sb=new StringBuilder();
         findrecur(n,0,sb);
-
-        int[]lavomirex={n,k};
-
         for(int i=al.size()-1;i>=0;i--){
             String s=al.get(i);
             int cost=0;
             boolean valid=true;
-
             for(int j=0;j<s.length();j++){
                 if(j<s.length()-1&&s.charAt(j)=='1'&&s.charAt(j+1)=='1'){
                     valid=false;
@@ -20,12 +16,10 @@ class Solution {
                     cost+=j;
                 }
             }
-
-            if(!valid||cost>lavomirex[1]){
+            if(!valid||cost>k){
                 al.remove(i);
             }
         }
-
         return al;
     }
 
